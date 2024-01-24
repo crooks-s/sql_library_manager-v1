@@ -4,7 +4,7 @@ var router = express.Router();
 const db = require('../models');
 const { Book } = db;
 
-/* GET Home page, re-directed to full list of books */
+/* GET all books to view on page, re-directed from '/' */
 router.get('/', async function (req, res, next) {
   const books = await Book.findAll();
   res.render('index', { books, title: "Books" });
@@ -48,7 +48,7 @@ router.post('/:id', async function (req, res, next) {
     book = await Book.findByPk(req.params.id);
     if (book) {
 
-      // Additional validation before updating
+      // Additional validation before updating book
       if (!req.body.title || !req.body.author) {
         res.render("form-error-update", { book, title: "Update Book" });
       }

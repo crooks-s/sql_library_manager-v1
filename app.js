@@ -12,7 +12,6 @@ var booksRouter = require('./routes/books');
 
 var app = express();
 
-// Verify connection to database
 // Sync database
 (async () => {
   try {
@@ -34,12 +33,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Routes
 app.use('/', indexRouter);
 app.use('/books', booksRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  const err = new Error('Sorry! That page or book was not found');
+  const err = new Error('Sorry! That page or book was not found!');
   err.status = 404;
   next(err);
 });
