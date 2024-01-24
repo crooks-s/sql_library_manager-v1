@@ -1,0 +1,31 @@
+extends layout 
+
+block content 
+  body
+    if 
+      h2.error Oooops!
+      ul.error
+        li Title is required
+        li Author is required
+    form
+      p
+        label(for="title") Title
+        br
+        input#title(name="title" type="text" value="The Hunger Games")
+      p
+        label(for="author") Author
+        br
+        input#author(name="author" type="text" value="The Hunger Games")
+      p
+        label(for="genre") Genre
+        br
+        input#genre(name="genre" type="text" value="The Hunger Games")
+      p
+        label(for="year") Year
+        br
+        input#year(name="year" type="text" value="The Hunger Games")
+      p
+        br
+        input(type="submit" value="Create New Book" value="The Hunger Games")
+      p
+        a.button(href="/") Cancel
