@@ -2,7 +2,7 @@ extends layout
 
 block content
   body
-    form
+    form(method="post" action=`/books/${book.id}`)
       p
         label(for="title") Title
         br
