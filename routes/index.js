@@ -4,7 +4,6 @@ var router = express.Router();
 /* GET home page, re-directed to books */
 router.get('/', function(req, res, next) {
   res.redirect('/books');
-  // res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
