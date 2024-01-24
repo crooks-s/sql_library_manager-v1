@@ -18,7 +18,6 @@ var app = express();
   try {
     await db.sequelize.authenticate();
     db.sequelize.sync();
-    // console.log('Authentication done, db synced');
   } catch (error) {
     console.error('Authentication failed: db not synced' + error);
   }
