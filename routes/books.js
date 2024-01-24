@@ -19,12 +19,24 @@ router.get('/new', async function(req, res, next) {
 
 /* POST new book to db */
 router.post('/new', async function(req, res, next) {
-  res.render('layout', {});
+  // let book;
+  // try {
+  //   book = await Book.create(req.body);
+  //   res.redirect("/books/" + book.id);
+  // } catch (error) {
+  //   if (error.name === "SequelizeValidationError") {
+  //     book = await Book.build(req.body);
+  //     res.render("books/new", { book, errors: error.errors, title: "New Article" })
+  //   } else {
+  //     throw error; //error caught in the asyncHandler's catch block
+  //   }
+  // }
 });
 
 /* GET book detail form */
 router.get('/:id', async function(req, res, next) {
-  res.render('layout', {title: 'show book detail form placeholder'});
+  const book = await Book.findByPk(req.params.id);
+  res.render('update-book', { book, title: 'Update Book'});
 });
 
 /* UPDATE book in db */
