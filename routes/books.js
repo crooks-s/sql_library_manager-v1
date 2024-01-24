@@ -12,14 +12,14 @@ router.get('/', async function(req, res, next) {
   res.render('index', { books, title: "Books" });
 });
 
-/* CREATE new book form */
+/* GET create new book form */
 router.get('/new', async function(req, res, next) {
-  res.render('layout', {title: 'create new book form placeholder'});
+  res.render('new-book', {title: "New Book"});
 });
 
 /* POST new book to db */
 router.post('/new', async function(req, res, next) {
-  res.render('layout', {title: 'post new book placeholder'});
+  res.render('layout', {});
 });
 
 /* GET book detail form */
@@ -29,12 +29,12 @@ router.get('/:id', async function(req, res, next) {
 
 /* UPDATE book in db */
 router.post('/:id', async function(req, res, next) {
-  res.render('layout', {title: 'update book details placeholder'});
+  res.render('layout', {});
 });
 
 /* DELETE book in db */
 router.post('/:id/delete', async function(req, res, next) {
-  res.render('layout', {title: 'delete book placeholder'});
+  res.render('layout', {});
 });
 
 module.exports = router;
