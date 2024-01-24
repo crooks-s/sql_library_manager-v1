@@ -6,23 +6,23 @@ block content
     ul.error
       li Title is required
       li Author is required
-    form
+    form(method="post" action="/books/new")
       p
         label(for="title") Title
         br
-        input#title(name="title" type="text" value="The Hunger Games")
+        input#title(name="title" type="text" value=book.title)
       p
         label(for="author") Author
         br
-        input#author(name="author" type="text" value="The Hunger Games")
+        input#author(name="author" type="text" value=book.author)
       p
         label(for="genre") Genre
         br
-        input#genre(name="genre" type="text" value="The Hunger Games")
+        input#genre(name="genre" type="text" value=book.genre)
       p
         label(for="year") Year
         br
-        input#year(name="year" type="text" value="The Hunger Games")
+        input#year(name="year" type="text" value=book.year)
       p
         br
         input(type="submit" value="Create New Book")
