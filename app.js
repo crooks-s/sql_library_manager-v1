@@ -13,11 +13,12 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 // Verify connection to database
+// Sync database
 (async () => {
   try {
     await db.sequelize.authenticate();
     db.sequelize.sync();
-    console.log('Authentication done, db synced');
+    // console.log('Authentication done, db synced');
   } catch (error) {
     console.error('Authentication failed: db not synced' + error);
   }
@@ -39,7 +40,10 @@ app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+  const err = new Error();
+  err.status = 404;
+  err.message = 'Sorry! That page was not found.';
+  next(err);
 });
 
 // error handler
@@ -50,7 +54,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', {error: err});
 });
 
 module.exports = app;
