@@ -2,11 +2,10 @@ extends layout
 
 block content 
   body
-    if 
-      h2.error Oooops!
-      ul.error
-        li Title is required
-        li Author is required
+    h2.error Oooops!
+    ul.error
+      li Title is required
+      li Author is required
     form
       p
         label(for="title") Title
@@ -26,6 +25,6 @@ block content
         input#year(name="year" type="text" value="The Hunger Games")
       p
         br
-        input(type="submit" value="Create New Book" value="The Hunger Games")
+        input(type="submit" value="Create New Book")
       p
         a.button(href="/") Cancel
