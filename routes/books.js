@@ -19,18 +19,18 @@ router.get('/new', async function(req, res, next) {
 
 /* POST new book to db */
 router.post('/new', async function(req, res, next) {
-  // let book;
-  // try {
-  //   book = await Book.create(req.body);
-  //   res.redirect("/books/" + book.id);
-  // } catch (error) {
-  //   if (error.name === "SequelizeValidationError") {
-  //     book = await Book.build(req.body);
-  //     res.render("books/new", { book, errors: error.errors, title: "New Article" })
-  //   } else {
-  //     throw error; //error caught in the asyncHandler's catch block
-  //   }
-  // }
+  let book;
+  try {
+    book = await Book.create(req.body);
+    res.redirect("/books/" + book.id);
+  } catch (error) {
+    if (error.name === "SequelizeValidationError") {
+      book = await Book.build(req.body);
+      res.render("books/new", { book, errors: error.errors, title: "New Article" })
+    } else {
+      throw error; //error caught in the asyncHandler's catch block
+    }
+  }
 });
 
 /* GET book detail form */
@@ -46,7 +46,13 @@ router.post('/:id', async function(req, res, next) {
 
 /* DELETE book in db */
 router.post('/:id/delete', async function(req, res, next) {
-  res.render('layout', {});
+  const book = await Book.findByPk(req.params.id);
+  if (book) {
+    await book.destroy();
+    res.redirect("/books");
+  } else {
+    res.sendStatus(404);
+  }
 });
 
 module.exports = router;
