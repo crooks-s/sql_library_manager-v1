@@ -10,6 +10,43 @@ router.get('/', async function (req, res, next) {
   res.render('index', { books, title: "Books" });
 });
 
+/* GET search books */
+router.get('/search', async function (req, res, next) {
+  const category = req.query.category;
+  const search = req.query.search.toLowerCase();
+  const books = await Book.findAll();
+
+  // No results found
+  if (!search.trim()) {
+    res.render('error', { error: {}, title: "No results were found." });
+  };
+
+  // Filter books based on category and search query
+  const filteredBooks = books.filter(book => {
+    const title = book.title.toLowerCase();
+    const author = book.author.toLowerCase();
+    const genre = book.genre.toLowerCase();
+
+    if (category === 'title' && title.includes(search)) {
+      return true;
+    } else if (category === 'author' && author.includes(search)) {
+      return true;
+    } else if (category === 'genre' && genre.includes(search)) {
+      return true;
+    } else if (category === 'year' && book.year.includes(search)) {
+      return true;
+    }
+  });
+
+  // Ensure filteredBooks is not empty
+  if (filteredBooks.length > 0) {
+    res.render('home-btn', { books: filteredBooks, title: 'Results' });
+  } else {
+    res.render('error', { error: {}, title: "No results were found." });
+  };
+
+});
+
 /* GET form to create new book entry */
 router.get('/new', async function (req, res, next) {
   res.render('new-book', { title: "New Book" });
