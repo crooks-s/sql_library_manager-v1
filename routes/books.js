@@ -70,11 +70,17 @@ router.post('/new', async function (req, res, next) {
 
 /* GET form to update book info */
 router.get('/:id', async function (req, res, next) {
-  const book = await Book.findByPk(req.params.id);
-  if (book) {
-    res.render('update-book', { book, title: 'Update Book' });
-  } else {
-    next(); // error route
+  try {
+    const book = await Book.findByPk(req.params.id);
+    if (book) {
+      res.render('update-book', { book, title: 'Update Book' });
+    } else {
+      const errNotFound = new Error('That book was not found');
+      errNotFound.status = 404;
+      next(errNotFound);
+    }
+  } catch (error) {
+    next(error);
   }
 });
 
