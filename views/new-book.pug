@@ -5,22 +5,17 @@ block content
     form(method="post" action="/books/new")
       p
         label(for="title") Title
-        br
         input#title(name="title", type="text")
       p
         label(for="author") Author
-        br
         input#author(name="author", type="text")
       p
         label(for="genre") Genre
-        br
         input#genre(name="genre", type="text")
       p
         label(for="year") Year
-        br
         input#year(name="year", type="text")
       p
-        br
         input(type="submit", value="Create New Book")
       p
         a.button(href="/") Cancel
