@@ -12,7 +12,7 @@ var booksRouter = require('./routes/books');
 
 var app = express();
 
-// Sync database
+// Sync database IIFE
 (async () => {
   try {
     await db.sequelize.authenticate();
@@ -39,9 +39,9 @@ app.use('/books', booksRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  const err = new Error('Sorry! That page was not found!');
-  err.status = 404;
-  next(err);
+  const error = new Error('Sorry! That page was not found!');
+  error.status = 404;
+  res.render('page-not-found', { error });
 });
 
 // error handler
