@@ -39,7 +39,7 @@ app.use('/books', booksRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  const err = new Error('Sorry! That page or book was not found!');
+  const err = new Error('Sorry! That page was not found!');
   err.status = 404;
   next(err);
 });
