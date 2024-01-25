@@ -22,6 +22,8 @@ var app = express();
   }
 })();
 
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
