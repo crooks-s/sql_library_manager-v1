@@ -10,7 +10,7 @@ This is a Team Treehouse project demonstrating the following skills:
 7) Database modeling
 8) CRUD
 
-The goal of this project is to build a web application that demonstrates CRUD operations for a library database. A search feature was added, but the styling for the feature needs to be done. The views could also be cleaned up. 
+The goal of this project is to build a web application that demonstrates CRUD operations for a library database. A search feature was added, but the styling for the feature needs to be done. The views could also be cleaned up. Given a larger databse, implementing pagination would be helpful.
 
 Author: Sean Crooks
 <br>Contributions: Team Treehouse supplied library.db and style.css, along with the guidelines for the project.
