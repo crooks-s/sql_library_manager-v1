@@ -33,7 +33,7 @@ router.get('/search', async function (req, res, next) {
       return true;
     } else if (category === 'genre' && genre.includes(search)) {
       return true;
-    } else if (category === 'year' && book.year.includes(search)) {
+    } else if (category === 'year' && book.year === parseInt(search)) {
       return true;
     }
   });
