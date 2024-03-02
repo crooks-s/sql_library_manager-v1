@@ -1,9 +1,11 @@
 # SQL Library Manager
-TeamTreehouse Unit 8 Project
+## Introduction
+Treehouse Unit 8 Project. This application presents a library database in which users may perform CRUD operations. This application was made with Express, SQL, and Pug.
 
-This web application presents a library database in which users may perform CRUD operations.
+## Tech Stack
+JavaScript. Express.js. Pug. SQLite3. Sequelize-cli.
 
-This is a Team Treehouse project demonstrating the following skills:
+## Process/Learning (to be updated)
 1) Express
 2) SQLite3 
 3) Pug
@@ -12,7 +14,19 @@ This is a Team Treehouse project demonstrating the following skills:
 7) Database modeling
 8) CRUD
 
-* There is much to improve for this application so please see issues and make a submission if the issue is not already addressed. Thank you!
+## Improvement
+**SEE ISSUES**
 
-Author: Sean Crooks
-<br>Contributions: Team Treehouse supplied library.db and style.css, along with the guidelines for the project.
+## Running the Project
+Clone the project.
+<br /> In terminal, ensure you are in root directory.
+<br /> Run ```npm install``` or ```npm i``` to install dependencies.
+<br /> Run ```npm start``` to start server.
+<br /> In your selected web browser, go to [http://localhost:3000/](http://localhost:3000/)
+<br /><br /> ** Otherwise, I have a live version [here](https://lib-mgr.up.railway.app/books).
+
+## Author
+Sean Crooks
+
+## Contributions
+Team Treehouse supplied ```library.db``` and ```style.css```, along with the guidelines for the project.
